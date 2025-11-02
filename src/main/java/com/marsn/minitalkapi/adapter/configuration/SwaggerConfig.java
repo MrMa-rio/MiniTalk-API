@@ -7,11 +7,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SwaggerConfig {
 
+    static String packagePath = "com.marsn.minitalkapi.entrypoint.";
+
     @Bean
     public GroupedOpenApi authApi() {
         return GroupedOpenApi.builder()
                 .group("Autenticação")
-                .pathsToMatch("/api/auth/**")
+                .packagesToScan(packagePath + "auth")
                 .build();
     }
 
@@ -19,7 +21,7 @@ public class SwaggerConfig {
     public GroupedOpenApi userApi() {
         return GroupedOpenApi.builder()
                 .group("Usuários")
-                .pathsToMatch("/api/users/**")
+                .packagesToScan(packagePath + "user")
                 .build();
     }
 
@@ -27,7 +29,7 @@ public class SwaggerConfig {
     public GroupedOpenApi messageApi() {
         return GroupedOpenApi.builder()
                 .group("Mensagens")
-                .pathsToMatch("/api/messages/**")
+                .packagesToScan(packagePath + "chat")
                 .build();
     }
 }
