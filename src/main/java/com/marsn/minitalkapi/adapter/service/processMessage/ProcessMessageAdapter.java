@@ -1,7 +1,7 @@
-package com.marsn.minitalkapi.adapter.service.teste;
+package com.marsn.minitalkapi.adapter.service.processMessage;
 
 import com.marsn.minitalkapi.adapter.mappers.ChatMapper;
-import com.marsn.minitalkapi.adapter.service.consumers.ChatConsumer;
+import com.marsn.minitalkapi.adapter.service.consumers.GenericConsumer;
 import com.marsn.minitalkapi.adapter.service.producers.ChatProducer;
 import com.marsn.minitalkapi.core.model.user.SendPacketMessageDTO;
 import com.marsn.minitalkapi.v1.ChatMessage;
@@ -11,15 +11,15 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ChatAdapter {
+public class ProcessMessageAdapter {
 
 
     private final ChatProducer chatProducer;
-    private final ChatConsumer chatConsumer;
+    private final GenericConsumer genericConsumer;
 
-    public ChatAdapter(RabbitTemplate rabbitTemplate, RabbitAdmin rabbitAdmin, ConnectionFactory connectionFactory) {
+    public ProcessMessageAdapter(RabbitTemplate rabbitTemplate, RabbitAdmin rabbitAdmin, ConnectionFactory connectionFactory) {
         this.chatProducer = new ChatProducer(rabbitTemplate);
-        this.chatConsumer = new ChatConsumer(rabbitAdmin, connectionFactory);
+        this.genericConsumer = new GenericConsumer(rabbitAdmin, connectionFactory);
     }
 
     public String sendMessage() {
@@ -42,7 +42,7 @@ public class ChatAdapter {
     }
 
     public String subscribe() {
-        chatConsumer.subscribeToConversation("MarioTeste", "TESTE");
+        genericConsumer.subscribeToConversation("MarioTeste", "TESTE");
 
         return "INSCRITO COM SUCESSO";
     }

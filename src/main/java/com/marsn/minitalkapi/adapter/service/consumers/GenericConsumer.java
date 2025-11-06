@@ -11,12 +11,12 @@ import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ChatConsumer {
+public class GenericConsumer {
 
     private final RabbitAdmin rabbitAdmin;
     private final ConnectionFactory connectionFactory;
 
-    public ChatConsumer( RabbitAdmin rabbitAdmin, ConnectionFactory connectionFactory) {
+    public GenericConsumer(RabbitAdmin rabbitAdmin, ConnectionFactory connectionFactory) {
         this.rabbitAdmin = rabbitAdmin;
         this.connectionFactory = connectionFactory;
     }

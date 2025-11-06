@@ -14,4 +14,7 @@ public enum TypeQueues {
     }
 
 
+    public String getName() {
+        return this.queueName;
+    }
 }
