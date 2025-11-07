@@ -27,10 +27,8 @@ public class ProcessConsumer {
             ChatMessage chatMsg = ChatMessage.parseFrom(message.getBody());
             System.out.printf("📩 [%s] Nova mensagem em %s: %s%n",
                     chatMsg.getSenderId(), chatMsg.getConversationId(), chatMsg.getContent());
-
             System.out.println(chatMsg.getMessageId());
-
-            //adapter.sendMessage(chatMsg)
+            adapter.sendMessage();
         } catch (InvalidProtocolBufferException e) {
             log.error("FALHA DE PROCESSAMENTO DE CONVERSAO DE MENSAGEM");
         } catch (Exception e) {

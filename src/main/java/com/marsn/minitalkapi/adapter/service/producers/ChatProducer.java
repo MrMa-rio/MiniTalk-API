@@ -17,7 +17,7 @@ public class ChatProducer {
     public void sendMessage(ChatMessage message) {
 
 
-        String routingKey = "chat.conversation." + message.getConversationId(); //TODO: Criar as routingKey de maneira mais eficiente e estruturada
+        String routingKey = "chat.conversation." + message.getDestinyId(); //TODO: Criar as routingKey de maneira mais eficiente e estruturada
 
         rabbitTemplate.convertAndSend(
                 TypeExchanges.CHAT_EXCHANGE.getExchangeName(),
