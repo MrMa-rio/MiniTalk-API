@@ -1,3 +1,5 @@
+
+
 spring:
   main:
     web-application-type: reactive
@@ -7,4 +9,5 @@ spring:
 springdoc:
   swagger-ui:
     path: /docs
-
+server:
+  port: 8300

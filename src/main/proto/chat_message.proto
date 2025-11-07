@@ -10,4 +10,5 @@ message ChatMessage {
   string senderId = 3;
   string content = 4;
   string timestamp = 5;
+  string destinyId = 6;
 }

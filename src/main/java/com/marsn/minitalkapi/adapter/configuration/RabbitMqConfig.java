@@ -1,6 +1,8 @@
 package com.marsn.minitalkapi.adapter.configuration;
 
+import com.marsn.minitalkapi.adapter.configuration.serializer_deserializer.ProtobufMessageConverter;
 import com.marsn.minitalkapi.core.model.shared.enums.TypeExchanges;
+import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
@@ -23,15 +25,21 @@ public class RabbitMqConfig {
         return new SimpleMessageConverter();
     }
 
+    @Bean MessageConverter protobufMessageConverter() {
+        return new ProtobufMessageConverter(Message.class);
+    }
+
+
     @Bean
     public RabbitAdmin rabbitAdmin(ConnectionFactory connectionFactory) {
         return new RabbitAdmin(connectionFactory);
     }
 
     @Bean
-    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
+    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory, MessageConverter protobufMessageConverter) {
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
-        rabbitTemplate.setMessageConverter(messageConverter());
+//        rabbitTemplate.setMessageConverter(messageConverter());
+        rabbitTemplate.setMessageConverter(protobufMessageConverter);
         return rabbitTemplate;
     }
 
