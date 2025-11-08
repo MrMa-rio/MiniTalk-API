@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum TypeQueues {
 
-    GENERIC_QUEUE("generic-queue");
+    PROCESS_QUEUE("chat.process.queue");
 
     private final String queueName;
 

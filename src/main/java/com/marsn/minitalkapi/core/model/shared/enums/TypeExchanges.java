@@ -5,8 +5,8 @@ import lombok.Getter;
 @Getter
 public enum TypeExchanges {
 
-    GENERIC_EXCHANGE("generic-exchange"),
-    CHAT_EXCHANGE("chat-exchange");
+    DELIVERY_EXCHANGE("chat.delivery.exchange"),
+    CHAT_EXCHANGE("chat.process.exchange");
 
     private final String exchangeName;
 
