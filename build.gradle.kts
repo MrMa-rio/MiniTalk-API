@@ -36,7 +36,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation ("org.springframework.boot:spring-boot-starter-data-mongodb")
     implementation("io.swagger.core.v3:swagger-annotations:2.2.40")
-    implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.8.13")
+    implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.8.14")
     implementation("org.springframework.boot:spring-boot-starter-websocket")
     implementation("io.grpc:grpc-services")
     implementation("org.springframework.amqp:spring-rabbit-stream")

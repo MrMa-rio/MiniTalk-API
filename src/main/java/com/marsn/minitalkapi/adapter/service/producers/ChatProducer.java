@@ -16,7 +16,7 @@ public class ChatProducer {
 
     public void sendMessage(ChatMessage message) {
 
-        RoutingKey routingKey = new ProcessRoutingKey( message.getDestinyId());
+        RoutingKey routingKey = new ProcessRoutingKey( String.valueOf(message.getDestinyId()));
         rabbitTemplate.convertAndSend(
                 TypeExchanges.DELIVERY_EXCHANGE.getExchangeName(),
                 routingKey.toRoute(),
