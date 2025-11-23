@@ -11,8 +11,12 @@ public class ChatMapper {
                 .setConversationId(dto.conversationId())
                 .setSenderId(dto.senderId())
                 .setContent(dto.content())
+                .setIsDeleted(dto.isDeleted())
+                .setIsEdited(dto.isEdited())
+                .setIsDelivered(dto.isDelivered())
+                .setIsRead(dto.isRead())
+                .setIsSent(dto.isSent())
                 .setTimestamp(dto.timestamp())
                 .build();
     }
-
 }
